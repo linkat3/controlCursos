@@ -1,0 +1,102 @@
+.amarillo {
+  color: #ddaa44;
+}
+
+.amarillohover:hover {
+  color: #7f693f;
+}
+
+h1 {
+  font-family: "Architects Daughter", sans-serif;
+}
+
+
+.titulo {
+  font-family: "Architects Daughter", sans-serif;
+  text-decoration: none;
+  font-size: 22px;
+  line-height: normal;
+}
+
+.menu {
+  font-family: sans-serif;
+  text-decoration: none;
+  font-size: 20px;
+  line-height: normal;
+}
+
+button {
+  border: 0;
+  background-color: white;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+nav .navbar-nav li a {
+  color: #ddaa44;
+  font-size: 1.2rem;
+}
+
+nav .navbar-nav li a:hover {
+  color: #7f693f;
+  font-size: 1.5rem;
+}
+
+nav {
+  background: #fff;
+  position: fixed;
+}
+
+#telefono {
+  height: 30px;
+}
+
+.subtitulos {
+  font-size: 1rem;
+}
+
+.boton {
+  background-color: #ddaa44;
+  border: none;
+  color: white;
+}
+
+footer {
+  font-size: 0.7rem;
+  text-size-adjust: auto;
+}
+
+section .adjust {
+  text-size-adjust: 60%;
+}
+
+/* media queries */
+@media (max-width: 650px) {
+  footer .row {
+    flex-direction: column;
+    /* Stack elements vertically on mobile */
+  }
+
+  footer .col-md-4 {
+    flex: 1;
+    margin-bottom: 1rem;
+    /* Add space between elements on mobile */
+  }
+}
+
+@media (min-width: 901px) {
+  footer {
+    flex: 1;
+    /* Make each column take up equal space */
+    margin-bottom: 0.5rem;
+    /* Add space between elements */
+    font-size: 1.2rem;
+  }
+}
