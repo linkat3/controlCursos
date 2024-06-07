@@ -114,7 +114,13 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 <!-- Script cambio de tema claro/oscuro -->
-<script src="http://localhost/Programacion/TercerTrimestre/controlCursos/controlCursos/js/tema.js"></script>
+<script src="http://localhost/MajadaP/controlCursos/js/tema.js"></script>
+<script src="http://localhost/MajadaP/controlCursos/js/modal.js"></script>
+<script src="http://localhost/MajadaP/controlCursos/js/script_v2.js"></script>
+<script defer src="http://localhost/MajadaP/controlCursos/js/app.js"></script>
+
+
+
 </body>
 
 </html>
