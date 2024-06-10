@@ -77,6 +77,16 @@ section .adjust {
   text-size-adjust: 60%;
 }
 
+#boton-carrito:click + aside {
+  display: block;
+}
+
+aside.hidden {
+  display: none;
+}
+
+
+
 /* media queries */
 @media (max-width: 650px) {
   footer .row {
