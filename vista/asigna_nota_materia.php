@@ -7,6 +7,7 @@ include_once "../controlador/Notas.php";
 include_once "../controlador/estudiantes.php";
 if (isset($_GET['id'])) {
     $codigo = $_GET['id']; // pasando el codigo desde parametro url
+
 } else {
     // mensaje error
     die('Missing codigo parameter');
@@ -41,8 +42,10 @@ $estudiantes = $result->fetch_all(MYSQLI_ASSOC);
         </div>
 
         <form action="../modelo/editar_nota.php" method="POST">
-            <input type="hidden" name="modulo" value="<?php echo $codigo ?>">
-            <table class="table table-bordered">
+            <input type="hidden" value="<?php echo $_SESSION['user_id']; ?>" name="id_estudiante">
+            <input type="hidden" value="<?php echo 'Alumno' ?>" name="tipo">
+            <input type="text" name="id_materia" value="<?php echo $codigo ?>">
+            <table class="table table-bordered table-success">
                 <thead>
                     <tr>
                         <th>Nombre Completo</th>
@@ -64,7 +67,7 @@ $estudiantes = $result->fetch_all(MYSQLI_ASSOC);
                                     <?php echo $estudiante["apellido2"] ?>
                                 </td>
                                 <td>
-                                    <input type="number" class="form-control grade-input" name="notas[<?php echo $estudiante["id_alumno"] ?>]" value="<?php echo $estudiante["nota"] ?>">
+                                    <input type="number" class="form-control grade-input" name="puntaje[<?php echo $estudiante["id_alumno"] ?>]" value="<?php echo $estudiante["nota"] ?>">
                                 </td>
                                 <td>
                                     <button class="btn btn-success m-2" type="submit">Guardar</button>

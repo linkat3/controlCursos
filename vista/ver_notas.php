@@ -6,46 +6,51 @@ include_once "../controlador/Materias.php";
 include_once "../controlador/Notas.php";
 require_once("../modelo/session.php");
 $userId = $_GET['id'];
-
-// $studentId = $_GET['studentId'];
-// $subjectCode = $_GET['subjectCode'];
-
-// Fetch student's grades
-$sql = "SELECT c.modulo, c.nota, u.nombre, u.apellido1, u.apellido2
-FROM calificaciones c
-INNER JOIN usuario u ON c.id_alumno = u.id
-WHERE c.modulo = '$subjectCode' AND c.id_alumno = $studentId";
-$result = $conn->query($sql);
-
-// Check query result
-if ($result->num_rows > 0) {
-    echo "<h2>Calificaciones de $subjectCode</h2>";
-
-    // Display grades in table
-    echo "<table>
-        <thead>
-            <tr>
-                <th>Nombre Completo</th>
-                <th>Nota</th>
-            </tr>
-        </thead>
-        <tbody>";
-
-    while ($row = $result->fetch_assoc()) {
-        $fullName = $row['nombre'] . " " . $row['apellido1'] . " " . $row['apellido2'];
-        $grade = $row['nota'];
-
-        echo "<tr>
-                <td>$fullName</td>
-                <td>$grade</td>
-            </tr>";
-    }
-
-    echo "</tbody>
-    </table>";
-} else {
-    echo "No se encontraron calificaciones para el estudiante y la materia.";
-}
-
-// Close database connection
-$conn->close();
+$estudiante = Estudiante::obtenerUno($userId);
+$materias = Materia::obtener();
+$notas = Nota::obtenerDeEstudiante($estudiante->id);
+$materiasConCalificacion = Nota::combinar($materias, $notas);
+?>
+<div class="row">
+    <div class="col-12 badge bg-info m-2">
+        <h1>Notas de <?php echo $estudiante->nombre ?>
+        <?php echo '' ?>
+        <?php echo $estudiante->apellido1?>
+        <?php echo '' ?>
+        <?php echo $estudiante->apellido2?>
+    </h1>
+    </div>
+    <div class="col-12 m-2">
+        <table class="table table-responsive table-primary table-striped align-middle">
+            <thead class="table-dark">
+                <tr class="table-active">
+                    <th>Materia</th>
+                    <th>Notas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $sumatoria = 0;
+                foreach ($notas as $nota) {
+                    $sumatoria += $nota["nota"];
+                ?>
+                    <tr>
+                        <td><?php echo $nota["modulo"] ?></td>
+                        <td><?php echo $nota["nota"] ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td><strong>Promedio</strong></td>
+                    <td>
+                        <?php
+                        $promedio = $sumatoria / (count($notas));                                           
+                        ?>
+                        <strong><?php echo $promedio; ?></strong>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
