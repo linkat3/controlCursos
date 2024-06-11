@@ -77,10 +77,6 @@ section .adjust {
   text-size-adjust: 60%;
 }
 
-#boton-carrito:click + aside {
-  display: block;
-}
-
 aside.hidden {
   display: none;
 }
@@ -109,4 +105,19 @@ aside.hidden {
     /* Add space between elements */
     font-size: 1.2rem;
   }
+
+  aside {
+    font-size: 2.0rem;
+  }
+
+  .feature {
+    font-size: 1.8rem;
+
+  }
+
+  tbody {
+    font-size: 1.8rem;
+  }
+ 
+
 }
