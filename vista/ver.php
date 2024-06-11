@@ -5,16 +5,16 @@ $userId = $_GET['id'];
 
 if (isset($_GET['id'])) {
   $id = ($_GET['id']);
-  $sql = "SELECT nombre, concat_ws(' ', apellido1,apellido2) AS Apellidos, email, cial, direccion, telef FROM usuario WHERE id = $id";
+  $sql = "SELECT nombre, concat_ws(' ', apellido1,apellido2) AS Apellidos, email, cial, direccion, telef, foto FROM usuario WHERE id = $id";
   $result = $conexion->query($sql);
   if ($result->rowCount() == 1) {
     $usuario = $result->fetch(PDO::FETCH_ASSOC);
     // mostrar los detalles
-    echo '<div class="container-fluid loggedin">';
+    echo '<div class="container-fluid loggedin card">';
     echo '<h1 class="bg-info px-4 py-5 text-center fw-bold text-white">Detalles del Alumno</h1>';
     echo '<div class="py-5">';
     echo '<div class="col-lg-6 mx-auto">';
-    echo '<div class="record-info fs-5 mb-4">';
+    echo '<div class="record-info fs-4 mb-4">';
     foreach ($usuario as $key => $value) {
       // muestra la foto 'foto' si existe
       if ($key === 'foto' && !empty($value)) {
@@ -26,6 +26,7 @@ if (isset($_GET['id'])) {
         echo '<p><strong>' . ucfirst($key) . ':</strong> ' . $value . '</p>';        
       }     
     } 
+
     echo '<br>';
     //ver notas
     echo '<a href="ver_notas.php?id=' . $userId . '" class="btn btn-outline-warning btn-lg px-4 me-sm-3 fw-bold">Ver Notas</a>';
@@ -48,5 +49,7 @@ if (isset($_GET['id'])) {
 
 
 ?>
+<br>
+<br>
 <?php include("./componentes/footer.php") ?>
 

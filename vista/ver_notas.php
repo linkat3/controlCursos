@@ -21,14 +21,14 @@ $materiasConCalificacion = Nota::combinar($materias, $notas);
     </h1>
     </div>
     <div class="col-12 m-2">
-        <table class="table table-responsive table-primary table-striped align-middle">
+        <table class="table table-responsive table-primary table-striped text-center">
             <thead class="table-dark">
-                <tr class="table-active">
+                <tr class="table-active fs-4">
                     <th>Materia</th>
                     <th>Notas</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="fs-5">
                 <?php
                 $sumatoria = 0;
                 foreach ($notas as $nota) {
@@ -40,7 +40,7 @@ $materiasConCalificacion = Nota::combinar($materias, $notas);
                     </tr>
                 <?php } ?>
             </tbody>
-            <tfoot>
+            <tfoot class="fs-5">
                 <tr>
                     <td><strong>Promedio</strong></td>
                     <td>
@@ -54,3 +54,6 @@ $materiasConCalificacion = Nota::combinar($materias, $notas);
         </table>
     </div>
 </div>
+<script src="../js/app.js"></script>
+<script src="../js/java.js"></script>
+<?php include("componentes/footer_login.php") ?>

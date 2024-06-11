@@ -20,7 +20,7 @@ if (isset($_GET['id'])) {
     //Editar perfil
     echo '<a href="../modelo/editar_perfil.php?id='.$userId.'" class="btn btn-warning btn-md"> Editar Perfil</a>';
     echo '</div>';
-    echo '<div class="record-info fs-5 mb-2">';
+    echo '<div class="record-info fs-4 mb-2">';
     foreach ($usuario as $key => $value) {
       // muestra la foto 'foto' si existe
       if ($key === 'foto' && !empty($value)) {
