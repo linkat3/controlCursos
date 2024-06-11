@@ -57,11 +57,16 @@ if ($asistencias->num_rows > 0) {
     echo '<a href="ver.php?id='.$userId.'" class="btn btn-warning btn-md m-1"> Volver</a>';
 
 } else {
-    echo "No se encontraron registros de asistencia para el alumno con ID: " . $id;
+    echo '<div class="fs-3">';
+    echo "No se encontraron registros de asistencia para el alumno con ID: " . $id;  
+    echo '</div>';
+
+   echo '<a href="ver.php?id='.$userId.'" class="btn btn-warning btn-md m-1 fs-4"> Volver</a>';
+
 }
 
 // Close the statement and connection
 $conexion->close();
 ?>
 
-<?php include("./componentes/footer.php") ?>
+<?php include("./componentes/footer_login.php") ?>
