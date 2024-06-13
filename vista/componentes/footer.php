@@ -115,8 +115,8 @@
 
 <!-- Script cambio de tema claro/oscuro -->
 <script src="http://localhost/MajadaP/controlCursos/js/tema.js"></script>
-<script src="http://localhost/MajadaP/controlCursos/js/modal.js"></script>
-<script src="http://localhost/MajadaP/controlCursos/js/script_v2.js"></script>
+<!-- <script src="http://localhost/MajadaP/controlCursos/js/modal.js"></script> -->
+<!-- <script src="http://localhost/MajadaP/controlCursos/js/script_v2.js"></script> -->
 <script defer src="http://localhost/MajadaP/controlCursos/js/app.js"></script>
 
 
