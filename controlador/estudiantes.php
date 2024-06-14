@@ -48,27 +48,25 @@ class Estudiante
             $this->foto
         );
         try {
-        $sentencia->execute();
-        if ($sentencia->affected_rows > 0) {
-            // Handle successful insertion
-            echo "Estudiante creado con éxito";
-        } else {
-            // Handle failed insertion (other than duplicate error)
-            echo "Error al crear el estudiante";
-        }
-        
-    } catch (mysqli_sql_exception $e) {
-        // Handle duplicate entry error
-        if ($e->getCode() === 1062) { // Check for duplicate key error code
-            $message = "Error: Ya existe un estudiante con ese número de identificación";
-        } else {
-            $message = "Error: " . $e->getMessage(); // Generic error message
-        }
+            $sentencia->execute();
+            if ($sentencia->affected_rows > 0) {
+                // Handle successful insertion
+                echo "Estudiante creado con éxito";
+            } else {
+                // Handle failed insertion (other than duplicate error)
+                echo "Error al crear el estudiante";
+            }
+        } catch (mysqli_sql_exception $e) {
+            // Handle duplicate entry error
+            if ($e->getCode() === 1062) { // Check for duplicate key error code
+                $message = "Error: Ya existe un estudiante con ese número de identificación";
+            } else {
+                $message = "Error: " . $e->getMessage(); // Generic error message
+            }
 
-        echo $message; // Display the custom error message
+            echo $message; // Display the custom error message
         }
         $sentencia->close();
-
     }
 
     public static function obtener()
@@ -139,9 +137,17 @@ class Estudiante
         return $asistencia;
     }
 
-   
+    //notas de alumnos por materia
+    public static function obtenerNotas($modulo)
+    {
+        global $conexion;
 
-    
+        $sentencia = $conexion->prepare("SELECT nombre,apellido1, apellido2, nota FROM usuario INNER JOIN calificaciones
+        ON usuario.id = calificaciones.id_alumno  WHERE modulo = ?");
+        $sentencia->bind_param('s', $modulo);
+        $sentencia->execute();
+        $notas = $sentencia->get_result();
+        return $notas;
 
-
+    }
 }
