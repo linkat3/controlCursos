@@ -9,7 +9,7 @@ session_start();
     <div class="col-12">
         <h1>Listado de alumnos</h1>
         <!-- Button trigger modal Crear/agregar -->
-        <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#create">
+        <button type="button" class="btn btn-primary m-2 fs-4" data-bs-toggle="modal" data-bs-target="#create">
             Nuevo
         </button>
     </div>
@@ -39,17 +39,17 @@ session_start();
                         <td><?php echo $estudiante["direccion"] ?></td>
                         <td><?php echo $estudiante["telef"] ?></td>
                         <td>
-                            <a href="notas_alumnos.php?id=<?php echo $estudiante["id"] ?>" class="btn btn-info">
+                            <a href="notas_alumnos.php?id=<?php echo $estudiante["id"] ?>" class="btn btn-info fs-5">
                                 Notas
                             </a>
                         </td>
                         <td>
-                            <a href="../modelo/editar_alumno.php?id=<?php echo $estudiante["id"] ?>" class="btn btn-warning">
+                            <a href="../modelo/editar_alumno.php?id=<?php echo $estudiante["id"] ?>" class="btn btn-warning fs-5">
                                 Editar
                             </a>
                         </td>
                         <td>
-                            <a href="#" class="btn btn-danger delete-button" data-id="<?php echo $estudiante["id"] ?>">
+                            <a href="#" class="btn btn-danger delete-button fs-5" data-id="<?php echo $estudiante["id"] ?>">
                                 <i class="bi bi-trash-fill" aria-hidden="true"></i>
                             </a>
 
