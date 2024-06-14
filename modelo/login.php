@@ -12,18 +12,18 @@ if (isset($_POST['login_button'])) {
   $clave = mysqli_real_escape_string($conexion, $_POST['clave']);
  
   // Comprobar si el nombre de usuario es válido
-  $query = "SELECT * FROM usuario WHERE username='$username'";
+  $query = "SELECT * FROM usuario WHERE username='$username' AND clave='$clave'";
   $results = mysqli_query($conexion, $query);
-  $_SESSION['user_id'] = $row['id']; // Store user ID
-  $_SESSION['username'] = $row['username']; // Store username
-  $_SESSION['email'] = $row['email']; // Store email (or other relevant data)
+ 
   if (mysqli_num_rows($results) == 1) {
     // Nombre de usuario válido, verificar contraseña
     $row = mysqli_fetch_assoc($results);
     if ($_POST['clave']===$clave) {
       // Inicio de sesión válido
       $_SESSION['username'] = $username;
-      $_SESSION['user_id'] = $row['id']; // Store user ID in session
+      $_SESSION['user_id'] = $row['id']; // almacenar user ID en session etc
+      $_SESSION['email'] = $row['email'];
+      $_SESSION['tipo'] = $row['tipo'];  
       header('location: ../vista/ver.php?id=' . $_SESSION['user_id']);
         exit; // Stop further execution after redirect
 
@@ -40,7 +40,7 @@ if (isset($_POST['login_button'])) {
 
 <?php include "../vista/componentes/header.php" ?>
 <link href="../vista/estilos/signin.css" rel="stylesheet">    
-<main class="form-signin mb-3 pb-3">
+<main class="form-signin mb-3 pb-4 fs-4">
   <form action="login.php" method="POST" autocomplete="off">
     <img class="img-fluid" src="../imagenes/alumno.png" alt="" width="72" height="57">
     <h1 class="h3 m-2 text-success d-flex justify-content-center">Área de Alumnos</h1>
@@ -54,13 +54,13 @@ if (isset($_POST['login_button'])) {
                 echo "</div>";
               }
     ?>
-    <div class="form-floating">
+    <div class="form-floating m-2 p-2">
       <input type="text" name="username" class="form-control" id="floatingInput" required>
-      <label for="floatingInput">Username</label>
+      <label for="floatingInput" placeholder="Usuario">Usuario</label>
     </div>
-    <div class="form-floating">
-      <input type="password" name="clave" class="form-control" id="floatingPassword" placeholder="Password" required>
-      <label for="floatingPassword">Password</label>
+    <div class="form-floating m-2 p-2">
+      <input type="password" name="clave" class="form-control" id="floatingPassword" required>
+      <label for="floatingPassword" placeholder="Password"></label>
     </div>
 
     <div class="checkbox mb-3">
@@ -72,4 +72,4 @@ if (isset($_POST['login_button'])) {
 
   </form>
 </main>
-<?php include "../vista/componentes/footer.php" ?>
+<?php include "../vista/componentes/footer_login.php" ?>
