@@ -20,14 +20,38 @@ body {
   z-index: 2;
 }
 
-.form-signin input[type="email"] {
-  margin-bottom: -1px;
+.form-signin input[type="text"] {
+  margin-bottom: -50;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+  font-size: 1.4rem;
+
 }
 
 .form-signin input[type="password"] {
-  margin-bottom: 10px;
+  margin-bottom: -50;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  font-size: 1.4rem;
+}
+
+
+
+input:focus label {
+  background-color: lightblue;
+  display: none;
+}
+
+
+
+/* media queries */
+@media (min-width: 901px) {
+  .form-signin {
+    
+    font-size: 1.6rem;
+  }
+
+
+ 
+
 }
