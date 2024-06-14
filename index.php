@@ -1,6 +1,7 @@
 <?php include("vista/componentes/headerIntro.php") ?>
 <?php
 include("modelo/db.php"); ?>
+
 <div class="content">
     <div class="p-4 mb-3 rounded-3">
         <div class="container-fluid py-5">
@@ -46,6 +47,7 @@ include("modelo/db.php"); ?>
         </div>
     </div>
 </div>
-<script src="js/app.js"></script>
-<script src="js/java.js"></script>
+ 
+<script src="./js/app.js"></script>
+<script src="./js/cookies.js"></script>
 <?php include("vista/componentes/footer.php") ?>
