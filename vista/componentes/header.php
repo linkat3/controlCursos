@@ -45,6 +45,17 @@
             </div>
         </nav>
     </header>
+  <!-- Cookies -->
+ <section class="cookies">
+    <h2 class="cookies__titulo">¿Aceptas nuestras Cookies?</h2>
+    <p class="cookies__texto">Usamos cookies para mejorar tu experiencia en la web.</p>
+    <div class="cookies__botones">
+        <button class="cookies__boton cookies__boton--no">No</button>
+        <button class="cookies__boton cookies__boton--si">Si</button>
+    </div>
+</section>
+<!-- Aquí se generarán todas las etiquetas <script> si acepta el usuario -->
+<div id="nuevosScripts"></div>
     <main class="container">
         <br>
         <br>
